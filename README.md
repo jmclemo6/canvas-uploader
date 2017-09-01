@@ -1,6 +1,7 @@
 # Canvas Uploader #
 
-Provides a command-line interface for students to submit file upload assignments to Instructure Canvas
+Provides a command-line interface for students to submit file upload assignments to Instructure Canvas.
+The original can be found [here](https://github.com/cdorsey/canvas-uploader)
 
 ## Requirements ##
 
