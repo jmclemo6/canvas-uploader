@@ -50,6 +50,8 @@ def get_assignment(class_id):
         response = auth_session.get(url, params=params)
     finally:
         auth_session.close()
+        with open('assignments.json', 'w') as outfile:
+            json.dump(response.json(), outfile)
     assignments = list(
         filter(
             lambda a: 'online_upload' in a['submission_types'] and a['locked_for_user'] != True,
@@ -63,8 +65,8 @@ def get_assignment(class_id):
         print("[{0}] {1}".format(i + 1, assignments[i]['name']))
 
     selection = int(input("Select assignment: ")) - 1
-    
-    if 'submission' in assignments[selection]:
+   
+    if 'submission' in assignments[selection] and assignments[selection]['submission']['submitted_at'] != None:
         choice = ""
         while choice != "n" and choice != "y":
             choice = input("This assignment already has a submisson. Continue? [y/n]: ")
