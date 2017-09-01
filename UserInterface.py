@@ -57,7 +57,7 @@ def get_assignment(class_id):
 
     print()
     if not assignments:
-        print("This class has no assignments aviliable for you.")
+        print("This class has no assignments available for you.")
         return None
     for i in range(len(assignments)):
         print("[{0}] {1}".format(i + 1, assignments[i]['name']))
