@@ -50,8 +50,6 @@ def get_assignment(class_id):
         response = auth_session.get(url, params=params)
     finally:
         auth_session.close()
-        with open('assignments.json', 'w') as outfile:
-            json.dump(response.json(), outfile)
     assignments = list(
         filter(
             lambda a: 'online_upload' in a['submission_types'] and a['locked_for_user'] != True,
